@@ -7,6 +7,8 @@ angular
     var vm = this;
     var firstRun = true;
 
+    $scope.calendarMode = 'year';
+
     $scope.$on('calendar.refreshView', function() {
       vm.view = calendarHelper.getYearView($scope.events, $scope.currentDay);
 

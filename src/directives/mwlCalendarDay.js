@@ -9,6 +9,8 @@ angular
     vm.calendarConfig = calendarConfig;
     vm.$sce = $sce;
 
+    $scope.calendarMode = 'day';
+
     $scope.$on('calendar.refreshView', function() {
       vm.dayViewHeight = calendarHelper.getDayViewHeight(
         $scope.dayViewStart,

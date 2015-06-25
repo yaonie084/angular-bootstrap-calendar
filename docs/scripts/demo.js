@@ -9,41 +9,41 @@ angular
     $scope.calendarDay = new Date();
     $scope.events = [
       {
-        title: 'An event',
+        title: '收拾东西去上海',
         type: 'warning',
-        startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
-        endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate()
+        startsAt: moment().startOf('week').subtract(2, 'days'),
+        endsAt: moment().startOf('week').add(1, 'week')
       }, {
-        title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
+        title: '调研angualr',
         type: 'info',
-        startsAt: moment().subtract(1, 'day').toDate(),
-        endsAt: moment().add(5, 'days').toDate()
+        startsAt: moment().subtract(1, 'day'),
+        endsAt: moment().add(6, 'days')
       }, {
-        title: 'This is a really long event title that occurs on every year',
+        title: '睡觉',
         type: 'important',
-        startsAt: moment().startOf('day').add(7, 'hours').toDate(),
-        endsAt: moment().startOf('day').add(19, 'hours').toDate(),
+        startsAt: moment(),
+        endsAt: moment().add(19, 'hours'),
         recursOn: 'year'
       }
     ];
 
-    /*
-     var currentYear = moment().year();
-     var currentMonth = moment().month();
-
-    function random(min, max) {
-      return Math.floor((Math.random() * max) + min);
-    }
-
-    for (var i = 0; i < 1000; i++) {
-      var start = new Date(currentYear,random(0, 11),random(1, 28),random(0, 24),random(0, 59));
-      $scope.events.push({
-        title: 'Event ' + i,
-        type: 'warning',
-        startsAt: start,
-        endsAt: moment(start).add(2, 'hours').toDate()
-      })
-    }*/
+    //
+    // var currentYear = moment().year();
+    // var currentMonth = moment().month();
+    //
+    //function random(min, max) {
+    //  return Math.floor((Math.random() * max) + min);
+    //}
+    //
+    //for (var i = 0; i < 1000; i++) {
+    //  var start = new Date(currentYear,random(0, 11),random(1, 28),random(0, 24),random(0, 59));
+    //  $scope.events.push({
+    //    title: 'Event ' + i,
+    //    type: 'warning',
+    //    startsAt: start,
+    //    endsAt: moment(start).add(2, 'hours').toDate()
+    //  })
+    //}
 
     function showModal(action, event) {
       $modal.open({

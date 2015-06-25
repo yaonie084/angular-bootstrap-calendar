@@ -3,10 +3,12 @@
     <mwl-events-list
       current-day="currentDay"
       events="events"
+      on-event-click="onEventClick"
+      on-edit-event-click="onEditEventClick"
+      calendar-mode = "calendarMode"
       ></mwl-events-list>
   </div>
 </div>
-
 <div class="cal-year-box">
   <div ng-repeat="rowOffset in [0, 4, 8] track by rowOffset">
     <div class="row cal-before-eventlist">

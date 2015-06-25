@@ -7,6 +7,8 @@ angular
     var vm = this;
     var firstRun = true;
 
+    $scope.calendarMode = 'month';
+
     $scope.$on('calendar.refreshView', function() {
 
       vm.weekDays = calendarHelper.getWeekDayNames();

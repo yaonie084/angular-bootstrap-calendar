@@ -1,3 +1,37 @@
 <p>{{currentDay}}</p>
 <p>{{events}}</p>
 <p>eventList.html</p>
+<p>{{calendarView}}</p>
+<p>{{calendarMode}}</p>
+
+<!-- repeat -->
+<div class="row day-task day-task-info" ng-repeat="event in events | filter: shouldDisplay">
+  <!--<div>-->
+  <!--{{task}}-->
+  <!--</div>-->
+  <div class="col-xs-12">
+    <a href="javascript:;">
+      <span ng-click="onEditEventClick({calendarEvent: event})">{{event.startsAt | toDate }} <i class="fa fa-angle-double-right"></i> {{ event.endsAt | toDate }} ： {{event.title}}</span>
+    </a>
+
+    <div class="pull-right">
+      <a href="javascript:;" class="event-item-edit" tooltip-append-to-body="true" ng-click="openModal(event)" tooltip="打开记录">
+        <i class="fa fa-file-text-o"></i>
+      </a>
+      <a href="javascript:;" class="event-item-edit" tooltip-append-to-body="true" tooltip="任务成员">
+        <i class="fa fa-user"></i></a>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="col-xs-12 collapse in" style="height: auto;">
+    <div class="progress-xs m-b-xs progress">
+      <div class="progress-bar progress-bar-info" style="width: 35%;"></div>
+    </div>
+
+    <a href="javascript:;" class="pull-left task-progress"></a>
+    <a href="javascript:;" class="pull-left task-progress"></a>
+  </div>
+</div>
+<!-- repeat -->

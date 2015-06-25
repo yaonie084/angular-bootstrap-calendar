@@ -6,6 +6,8 @@ angular
 
     var vm = this;
 
+    $scope.calendarMode = 'week';
+
     vm.showTimes = calendarConfig.showTimesOnWeekView;
     vm.$sce = $sce;
 
