@@ -21,7 +21,7 @@ gulp.task('watch', ['server'], function() {
   ).on('change', $.livereload.changed);
 });
 
-gulp.task('server', function() {
+gulp.task('server', ['less'], function() {
   $.connect.server({
     root: ['./'],
     port: 8000,

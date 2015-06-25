@@ -10,9 +10,10 @@
         display: none;
       }
     </style>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="docs/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/calendar.css">
     <link rel="stylesheet" href="docs/styles/main.css">
+    <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body ng-app="demo" ng-cloak>
 
@@ -23,16 +24,13 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Angular Bootstrap Calendar</a>
         </div>
-        <ul class="nav navbar-nav hidden-xs">
-          <li><a href="#demo">Demo</a></li>
-          <li><a href="#event-editor">Event editor</a></li>
-          <li><a href="https://github.com/mattlewis92/angular-bootstrap-calendar#installation">Installation</a></li>
-          <li><a href="https://github.com/mattlewis92/angular-bootstrap-calendar#documentation">Documentation</a></li>
-        </ul>
       </div>
     </nav>
 
     <div class="container-fluid">
+
+      <div class="row">
+      </div>
 
       <div class="row" ng-controller="MainCtrl" id="demo">
         <div class="col-md-8 col-md-offset-2">
@@ -48,21 +46,21 @@
                   mwl-date-modifier
                   date="calendarDay"
                   decrement="calendarView">
-                  Previous
+                  <
                 </button>
                 <button
                   class="btn btn-default"
                   mwl-date-modifier
                   date="calendarDay"
                   set-to-today>
-                  Today
+                  今天
                 </button>
                 <button
                   class="btn btn-primary"
                   mwl-date-modifier
                   date="calendarDay"
                   increment="calendarView">
-                  Next
+                  >
                 </button>
               </div>
             </div>
@@ -71,10 +69,10 @@
 
             <div class="col-md-6 text-center">
               <div class="btn-group">
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'year'">Year</label>
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'month'">Month</label>
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'week'">Week</label>
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'day'">Day</label>
+                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'year'">年</label>
+                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'month'">月</label>
+                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'week'">周</label>
+                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'day'">日</label>
               </div>
             </div>
 
@@ -89,8 +87,8 @@
             current-day="calendarDay"
             on-event-click="eventClicked(calendarEvent)"
             on-event-drop="eventDropped(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-            edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
-            delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+            edit-event-html="'<i class=\'fa fa-pencil\'></i>'"
+            delete-event-html="'<i class=\'fa fa-remove\'></i>'"
             on-edit-event-click="eventEdited(calendarEvent)"
             on-delete-event-click="eventDeleted(calendarEvent)"
             auto-open="true"
@@ -114,67 +112,14 @@
             </div>
           </script>
 
-          <h3 id="event-editor">
-            Edit events
-            <button class="btn btn-primary pull-right" ng-click="events.push({title: 'New event', type: 'important'})">Add new</button>
-            <div class="clearfix"></div>
-          </h3>
 
-          <table class="table table-bordered">
-
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Type</th>
-                <th>Starts at</th>
-                <th>Ends at</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr ng-repeat="event in events track by $index">
-                <td><input type="text" class="form-control" ng-model="event.title"></td>
-                <td>
-                  <select ng-model="event.type" class="form-control">
-                    <option value="important">Important</option>
-                    <option value="warning">Warning</option>
-                    <option value="info">Info</option>
-                    <option value="inverse">Inverse</option>
-                    <option value="success">Success</option>
-                    <option value="special">Special</option>
-                  </select>
-                </td>
-                <td>
-                  <p class="input-group" style="max-width: 250px">
-                    <input type="text" class="form-control" readonly datepicker-popup="medium" ng-model="event.startsAt" is-open="event.startOpen" close-text="Close" />
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default" ng-click="toggle($event, 'startOpen', event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                  </p>
-                  <timepicker ng-model="event.startsAt" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
-                </td>
-                <td>
-                  <p class="input-group" style="max-width: 250px">
-                    <input type="text" class="form-control" readonly datepicker-popup="medium" ng-model="event.endsAt" is-open="event.endOpen" close-text="Close" />
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default" ng-click="toggle($event, 'endOpen', event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                  </p>
-                  <timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
-                </td>
-                <td><button class="btn btn-danger" ng-click="events.splice($index, 1)">Delete</button></td>
-              </tr>
-            </tbody>
-
-          </table>
         </div>
       </div>
 
     </div>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.0/moment.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="docs/bower_components/moment/moment.js"></script>
+    <script src="docs/bower_components/angular/angular.min.js"></script>
     <script src="//cdn.jsdelivr.net/angular.bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.4/interact.min.js"></script>
     <script src="src/module.js"></script>
@@ -188,6 +133,8 @@
     <script src="src/services/calendarDebounce.js"></script>
     <script src="src/services/moment.js"></script>
     <script src="src/services/interact.js"></script>
+    <script src="src/services/momentConfig.js"></script>
+    <script src="src/directives/mwlEventsList.js"></script>
     <script src="src/directives/mwlCollapseFallback.js"></script>
     <script src="src/directives/mwlDateModifier.js"></script>
     <script src="src/directives/mwlCalendarYear.js"></script>

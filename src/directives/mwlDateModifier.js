@@ -5,6 +5,8 @@ angular
   .controller('MwlDateModifierCtrl', function($element, $attrs, $scope, moment) {
 
     function onClick() {
+      console.log(moment($scope.date).format('ll'));
+      console.log($scope.increment);
       if (angular.isDefined($attrs.setToToday)) {
         $scope.date = new Date();
       } else if (angular.isDefined($attrs.increment)) {

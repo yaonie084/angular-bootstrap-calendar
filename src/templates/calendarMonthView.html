@@ -1,3 +1,12 @@
+<div class="row">
+  <div class="col-xs-12">
+    <mwl-events-list
+      current-day="currentDay"
+      events="events"
+      ></mwl-events-list>
+  </div>
+</div>
+
 <div class="cal-row-fluid cal-row-head">
 
   <div class="cal-cell1" ng-repeat="day in vm.weekDays track by $index" ng-bind="day"></div>

@@ -15,31 +15,31 @@ angular
           datetime: 'MMM d, h:mm a'
         },
         title: {
-          day: 'EEEE d MMMM, yyyy',
-          week: 'Week {week} of {year}',
-          month: 'MMMM yyyy',
-          year: 'yyyy'
+          day: 'yyyy年MM月dd日, 星期EE',
+          week: '{year}年 第{week}周',
+          month: 'yyyy年MM月',
+          year: 'yyyy年'
         }
       },
       moment: {
         date: {
           hour: 'ha',
-          day: 'D MMM',
+          day: 'MMM D日',
           month: 'MMMM',
           weekDay: 'dddd',
           time: 'HH:mm',
           datetime: 'MMM D, h:mm a'
         },
         title: {
-          day: 'dddd D MMMM, YYYY',
-          week: 'Week {week} of {year}',
-          month: 'MMMM YYYY',
-          year: 'YYYY'
+          day: 'YYYY年MM月DD日, 星期E',
+          week: '{year}年 第{week}周',
+          month: 'YYYY年MM月',
+          year: 'YYYY年'
         }
       }
     };
 
-    var dateFormatter = 'angular';
+    var dateFormatter = 'moment';
     var defaultDateFormats = angular.copy(defaultFormats[dateFormatter].date);
     var defaultTitleFormats = angular.copy(defaultFormats[dateFormatter].title);
     var showTimesOnWeekView = false;

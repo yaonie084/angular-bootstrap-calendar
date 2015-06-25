@@ -48,7 +48,7 @@
     "stream-series": "~0.1.1"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=0.10.0"
   },
   "browser": "dist/js/angular-bootstrap-calendar-tpls.js",
   "main": "index.js",
