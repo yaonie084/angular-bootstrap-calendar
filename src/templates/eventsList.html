@@ -1,17 +1,15 @@
 <p>{{currentDay}}</p>
-<p>{{events}}</p>
+<p>{{sortedEvents}}</p>
 <p>eventList.html</p>
 <p>{{calendarView}}</p>
 <p>{{calendarMode}}</p>
 
 <!-- repeat -->
-<div class="row day-task day-task-info" ng-repeat="event in events | filter: shouldDisplay">
-  <!--<div>-->
-  <!--{{task}}-->
-  <!--</div>-->
-  <div class="col-xs-12">
+<div class="row day-task day-task-info" ng-repeat="event in sortedEvents | filter: shouldDisplay">
+
+  <div class="col-xs-12" ng-class="'level' + event.level">
     <a href="javascript:;">
-      <span ng-click="onEditEventClick({calendarEvent: event})">{{event.startsAt | toDate }} <i class="fa fa-angle-double-right"></i> {{ event.endsAt | toDate }} ： {{event.title}}</span>
+      <span ng-click="onEventClick({calendarEvent: event})">{{event.startsAt | toDate }} <i class="fa fa-angle-double-right"></i> {{ event.endsAt | toDate }} ： {{event.title}}</span>
     </a>
 
     <div class="pull-right">
@@ -25,7 +23,7 @@
     </div>
   </div>
 
-  <div class="col-xs-12 collapse in" style="height: auto;">
+  <div class="col-xs-12 collapse in" ng-class="'level' + event.level" style="height: auto;">
     <div class="progress-xs m-b-xs progress">
       <div class="progress-bar progress-bar-info" style="width: 35%;"></div>
     </div>

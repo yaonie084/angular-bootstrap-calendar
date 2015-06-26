@@ -90,6 +90,7 @@ angular
       require: '^mwlCalendar',
       scope: {
         events: '=',
+        sortedEvents: '=',
         currentDay: '=',
         onEventClick: '=',
         onEditEventClick: '=',

@@ -8,6 +8,32 @@ angular
 
     $scope.events = $scope.events || [];
 
+    var events = $scope.events;
+
+    var sortedEvents = [];
+
+    var deepFlagEvents = function(currentEvent, currentLevel) {
+      currentEvent.level = currentLevel;
+      sortedEvents.push(currentEvent);
+      events.map(function(event) {
+        if(event.level == undefined && event.parentId == currentEvent.id && event.id != currentEvent.id) {
+          deepFlagEvents(event, currentLevel + 1);
+        }
+      });
+    };
+
+    var sortEvents = function() {
+      events.map(function(event) {
+        if(event.level == undefined && event.parentId == null){
+          deepFlagEvents(event, 0);
+        }
+      });
+    };
+
+    sortEvents();
+
+    $scope.sortedEvents = sortedEvents;
+
     vm.changeView = function(view, newDay) {
       $scope.view = view;
       $scope.currentDay = newDay;
@@ -70,6 +96,7 @@ angular
     unbindOnDestroy.push($scope.$watch('currentDay', refreshCalendar));
     unbindOnDestroy.push($scope.$watch('view', refreshCalendar));
     unbindOnDestroy.push($scope.$watch('events', refreshCalendar, true));
+    unbindOnDestroy.push($scope.$watch('sortedEvents', refreshCalendar, true));
 
     //Remove any watchers when the calendar is destroyed
     var unbindDestroyListener = $scope.$on('$destroy', function() {

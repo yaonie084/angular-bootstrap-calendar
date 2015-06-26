@@ -8,11 +8,6 @@ angular
 
     $scope.shouldDisplay = function(event) {
 
-      console.log(event.title);
-      console.log(moment(event.startsAt).format('llll'));
-      console.log(moment(event.endsAt).format('llll'));
-      console.log('------');
-
       var startsAt = moment(event.startsAt);
       var endsAt = moment(event.endsAt);
       var calendarMode = $scope.calendarMode;
@@ -37,6 +32,7 @@ angular
       scope: {
         currentDay: '=',
         events: '=',
+        sortedEvents: '=',
         onEventClick: '=',
         onEditEventClick: '=',
         calendarMode: '='

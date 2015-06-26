@@ -9,21 +9,51 @@ angular
     $scope.calendarDay = new Date();
     $scope.events = [
       {
+        id: 1,
         title: '收拾东西去上海',
         type: 'warning',
         startsAt: moment().startOf('week').subtract(2, 'days'),
-        endsAt: moment().startOf('week').add(1, 'week')
+        endsAt: moment().startOf('week').add(1, 'week'),
+        parentId: null
       }, {
+        id: 2,
         title: '调研angualr',
         type: 'info',
         startsAt: moment().subtract(1, 'day'),
-        endsAt: moment().add(6, 'days')
+        endsAt: moment().add(6, 'days'),
+        parentId: null
       }, {
+        id: 3,
         title: '睡觉',
         type: 'important',
         startsAt: moment(),
         endsAt: moment().add(19, 'hours'),
-        recursOn: 'year'
+        recursOn: 'year',
+        parentId: 1
+      }, {
+        id: 4,
+        title: '吃饭',
+        type: 'important',
+        startsAt: moment(),
+        endsAt: moment().add(19, 'hours'),
+        recursOn: 'year',
+        parentId: 3
+      }, {
+        id: 5,
+        title: '拿资料',
+        type: 'important',
+        startsAt: moment(),
+        endsAt: moment().add(19, 'hours'),
+        recursOn: 'year',
+        parentId: 1
+      }, {
+        id: 6,
+        title: '去复印店',
+        type: 'important',
+        startsAt: moment(),
+        endsAt: moment().add(19, 'hours'),
+        recursOn: 'year',
+        parentId: 2
       }
     ];
 
